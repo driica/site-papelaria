@@ -1,0 +1,256 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box; /*quando defino 300px de largura, e 10px de padding, meu conteúdo continua com 300px. Sem o border-box, o conteúdo ficaria com 310px*/
+}
+
+body{
+	background-color: #F5F5F5;
+	font-family: "Nunito", Helvetica, Arial, sans-serif;
+}
+
+a,
+a:hover,
+a:active,
+a:link,
+a:visited{
+	text-decoration: none;
+	color: black;
+}
+
+hr{
+	border: none;
+	background-color: #C6DCE4;
+	height: 2px;
+	width: 140px;
+	margin: 20px auto;
+}
+p{
+	line-height: 21.82px; /*espaçamento entre linhas*/
+	padding: 0 10px;
+}
+
+.section__titulo{
+	padding: 15px;
+	text-align: center;
+	font-size: 1rem;
+	margin-bottom: 10px;
+}
+
+img{ /*imagem responsiva*/
+	display: block;
+	max-width: 100%;
+}
+
+.menu-bg{
+	background-color: #CDF0EA;
+}
+
+.menu{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	max-width: 960px;
+	margin: 0 auto; /*se eu tiver em uma tela de 1000px, sobra 40px, pra isso não ocorrer, eu uso 0 auto, e ele pega os 40px, divide por 2 e fica bonitinho*/
+	flex-wrap: wrap; /*quebra do menu*/
+	padding-bottom: 5px;
+}
+
+.menu__logo{
+	margin: 10px;
+}
+
+.nav__list{
+	display: flex;
+	flex-wrap: wrap; /*quebra do menu em várias linhas*/
+}
+
+.nav__link{
+	padding: 20px 10px; /*20px superior, inferior; 10px a direita e esquerda*/
+}
+
+/**********************************/
+/* 3. Header
+/**********************************/
+.intro{
+	font-weight: bold;
+	font-size: 3em;
+	text-align: center;
+	margin: 0 auto;
+	padding: 25px 0px;
+}
+
+.img1{
+	padding: 60px;
+}
+
+.materiais{
+	max-width: 960px;
+	margin: 0 auto;
+}
+
+.materiais-c{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+.material{
+	width: 280px; /*para ficar lado a lado*/
+	margin: 0px 20px;
+}
+.material__titulo{
+	font-size: 1.5rem;
+	text-align: center;
+	margin: 10px 0px 5px 0px;
+}
+
+.material__descricao{
+	text-align: center;
+}
+
+.produto-preco{
+	text-align: center;
+	font-weight: bold;
+}
+
+@media(max-width: 800px){ /*a ordem padrão era 0 - básico; 1 - premium; 2 - ultra, mas eu modifiquei abaixo em telas menores de 800px*/
+	.plano:nth-child(3){
+		order: -2; 
+	} /*o terceiro filho de plano tem a ordem -2**/
+	.plano:nth-child(2){
+		order: -1;
+	} /*o segundo filho de plano tem a ordem -1**/
+}
+
+/**********************************/
+/* 7. Vantagens
+/**********************************/
+.vantagens-c{
+	max-width: 960px;
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.vantagem{
+	max-width: 240px;
+	margin: 10px;
+}
+
+.vantagem__titulo{
+	font-size: 1.7rem;
+	margin-bottom: 5px;
+	margin-left: 10px;
+}
+
+.vantagem__titulo::before{
+	content: "";
+	display: inline-block;
+	width: 10px;
+	height: 25px;
+	margin-right: 5px;
+}
+
+.vantagem:nth-of-type(3n+1) .vantagem__titulo::before{ /*de inicio, n vale 0, fazendo o calculo, ele vai pegar o primeiro elemento, depois, n vale 1, e 3*1+1=4, e ele pega o quarto elemento*/
+	background-color: #F6C6EA;
+}
+.vantagem:nth-of-type(3n+2) .vantagem__titulo::before{
+	background-color: #A5BECC;
+}
+.vantagem:nth-of-type(3n+3) .vantagem__titulo::before{
+	background-color:#F6C6EA;
+}
+
+@media(max-width: 800px){
+	.vantagem{
+		max-width: 220px; /*para ter duas colunas em tela menores de 800px*/
+	}
+}
+
+/**********************************/
+/* 8. Newsletter
+/**********************************/
+.newsletter{
+	background-color: #CDF0EA;
+	padding: 50px;
+}
+.newsletter-c{
+	max-width: 960px;
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	
+}
+.newsletter-info{
+	flex-grow: 1;
+	flex-shrink: 1;
+	flex-basis: 260px;
+	padding-left: 10px;
+}
+.newsletter-info__titulo{
+	font-size: 2.62rem;
+	font-weight: bold;
+}
+.newsletter-info__descricao{
+	font-style: italic;
+}
+.newsletter-form{
+	flex-grow: 2;
+	flex-shrink: 1;
+	flex-basis: 260px;
+	display: flex;
+	flex-wrap: wrap;
+}
+.newsletter-form__input{
+	flex-grow: 3; /*input tenha 3x o tamanho do botão*/
+	flex-shrink: 1;
+	flex-basis: 260px;
+	font-size: 1.25rem;
+	width: 325px;
+	color: black;
+	font-style: italic;
+	font-family: var(--ff-primary);
+	border: 10px solid #F2D1D1;
+	padding: 10px;
+	margin: 0;
+	border-radius: 0px;
+}
+
+.newsletter-form__submit{
+	flex-grow: 1;
+	flex-shrink: 1;
+	flex-basis: 260px;
+	width: 192px;
+	font-family: var(--ff-primary);
+	font-size: 2.25rem;
+	font-weight: bold;
+	text-transform: uppercase;
+	background-color: #F2D1D1;
+	color: black;
+	cursor: pointer; /*mudei o cursor ao passar em cima do botão*/
+	border: none;
+	padding: 15px;
+}
+
+/**********************************/
+/* 9. Footer
+/**********************************/
+.footer{
+	background-color: #F2D1D1;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding: 55px calc((100% - 960px)/2);
+}
+
+.footer__copyright, .footer__logo{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+@media(max-width: 375px){
+	.newsletter-form__input{
+		width: 220px;
+	}
+	
+}
